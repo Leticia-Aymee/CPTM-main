@@ -10,8 +10,10 @@
 }
 
 body{
-    background: var(--cor-do-fundo);
-
+    background-image: url(../assets/fundo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     color: var(--texto-defaly); 
 }
 
@@ -333,57 +335,208 @@ a {
   }
 }
 
-.teste-1 {
-  width: 100%;
-  border: none;
-  color: #020617;
-  background-color: #f0f8ff;
-  font-weight: 500;
-  padding: 8px;
+.container-fluid {
+  margin-bottom: 40px;
+}
+
+#container {
+  margin: 10px auto;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 1480px;
+  min-height: 30vh;
+
+}
+
+.accordion {
+  width: 90%;
+  max-width: 1480px;
+  margin: 2rem auto;
+}
+
+.accordion-item {
+  background-color: #fff;
+  color: #111;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.accordion-item-header {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  min-height: 3.5rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
   cursor: pointer;
-  transition: background-color .3s ease;
-
 }
 
-#mypopover {
-  background-color: #ffffffc2;
-  color: #ffffff3f;
-  border-radius: none;
-  border: n;
+.accordion-item-header:hover {
+  background-color: #ee4448; /* Cor de fundo ao passar o mouse */
+  color: #fff; /* Cor do texto ao passar o mouse */
+  border-radius: 0.5rem;
+  margin-top: -3px;
+  margin-left: -1px;
+  margin-right: -1px;
+  margin-bottom: -3px;
+  padding: 21px;
 }
 
-.teste-2 {
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordion-item-body-content {
+  padding: 1rem;
+  line-height: 1.5rem;
+  border-top: 2px solid;
+  border-image: linear-gradient(to right, transparent, rgb(255, 0, 0), transparent) 1;
+}
+
+.accordion-item-header .fa-chevron-down {
+  position: absolute;
+  right: 1rem;
+  transition: transform .2s linear;
+}
+
+.accordion-item-header.active .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.accordion-item-header.active .fa-chevron-down + .accordion-item-body {
+  max-height: 200px;
+}
+
+
+
+#ajuda {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
+  background: #c9c9c996;
+}
+  
+
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  max-width: 800px;
   width: 100%;
-  border: none;
-  color: #020617;
-  background-color: #f0f8ff;
-  font-weight: 500;
-  padding: 8px;
-  cursor: pointer;
-  transition: background-color .3s ease;
+  padding: 20px;
 }
 
-#mypopover {
-  background-color: #ffffffc2;
-  color: #ffffff3f;
-  border-radius: none;
-  border: n;
-}
-
-.teste-3 {
+.video h1 {
+  font-size: 45px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* opcional, para centralizar verticalmente se necessário */
+  padding: 20px 10px;
+  max-width: 700px; /* Definindo a largura máxima */
   width: 100%;
-  border: none;
-  color: #020617;
-  background-color: #f0f8ff;
-  font-weight: 500;
-  padding: 8px;
-  cursor: pointer;
-  transition: background-color .3s ease;
+  margin: 0 auto; /* Centraliza o bloco */
+  color: #ff0000
 }
 
-#mypopover {
-  background-color: #ffffffc2;
-  color: #ffffff3f;
-  border-radius: none;
-  border: n;
-} 
+.video p {
+  margin: 0;
+  padding-bottom: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 0, 0);
+
+}
+
+video, 
+.video {
+ 
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+ 
+.botao {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #ee3338 ;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  animation: pulsar 2s infinite;
+  width: 100%;
+  max-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+@keyframes pulsar {
+  0% {
+      transform: scale(1);
+      background-color: #ee3338;
+  }
+  50% {
+      transform: scale(1.1);
+      background-color: #c92328;
+  }
+  100% {
+      transform: scale(1);
+      background-color: #ee3338;
+  }
+}
+
+.botao:active {
+  transform: scale(0.95);
+}
+
+/* scroll top button */
+
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 999999;
+  background-color: #ee4448;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: whitesmoke;
+  line-height: 0;
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.scroll-top:hover {
+  background: #d6bcbc;
+}
+
+.scroll-top:hover i {
+  color: rgb(255, 0, 0);
+}
